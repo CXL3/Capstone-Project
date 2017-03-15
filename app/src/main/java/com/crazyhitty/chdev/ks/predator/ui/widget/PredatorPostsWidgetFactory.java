@@ -35,7 +35,6 @@ import android.widget.RemoteViewsService;
 
 import com.crazyhitty.chdev.ks.predator.R;
 import com.crazyhitty.chdev.ks.predator.core.posts.PostsContract;
-import com.crazyhitty.chdev.ks.predator.core.posts.PostsPresenter;
 import com.crazyhitty.chdev.ks.predator.models.Post;
 import com.crazyhitty.chdev.ks.predator.ui.activities.PostDetailsActivity;
 import com.crazyhitty.chdev.ks.predator.utils.Logger;
@@ -58,7 +57,7 @@ public class PredatorPostsWidgetFactory implements RemoteViewsService.RemoteView
     private WeakReference<Context> mContextWeakReference;
     private int mAppWidgetId;
 
-    private PostsContract.Presenter mPostsPresenter;
+    //private PostsContract.Presenter mPostsPresenter;
 
     private List<Post> mPosts;
 
@@ -72,9 +71,9 @@ public class PredatorPostsWidgetFactory implements RemoteViewsService.RemoteView
     @Override
     public void onCreate() {
         Logger.d(TAG, "onCreate: true");
-        setPresenter(new PostsPresenter(this));
-        mPostsPresenter.subscribe();
-        mPostsPresenter.getOfflinePosts();
+        //setPresenter(new PostsPresenter(this));
+        //mPostsPresenter.subscribe();
+        //mPostsPresenter.getOfflinePosts();
     }
 
     @Override
@@ -83,14 +82,14 @@ public class PredatorPostsWidgetFactory implements RemoteViewsService.RemoteView
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                mPostsPresenter.getOfflinePosts();
+                //mPostsPresenter.getOfflinePosts();
             }
         });
     }
 
     @Override
     public void onDestroy() {
-        mPostsPresenter.unSubscribe();
+        //mPostsPresenter.unSubscribe();
     }
 
     @Override
@@ -139,19 +138,54 @@ public class PredatorPostsWidgetFactory implements RemoteViewsService.RemoteView
         return false;
     }
 
-    @Override
+    /*@Override
     public void showPosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
         Logger.d(TAG, "showPosts: post size: " + posts.size());
         mPosts = posts;
+    }*/
+
+    @Override
+    public void stopLoading() {
+
     }
 
     @Override
+    public void showOfflinePosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
+
+    }
+
+    @Override
+    public void showOnlinePosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
+
+    }
+
+    @Override
+    public void showMorePosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
+
+    }
+
+    @Override
+    public void unableToLoadOfflinePosts(String errorMessage) {
+
+    }
+
+    @Override
+    public void unableToLoadOnlinePosts(String errorMessage) {
+
+    }
+
+    @Override
+    public void unableToLoadMorePosts(String errorMessage) {
+
+    }
+
+    /*@Override
     public void unableToGetPosts(boolean onLoadMore, boolean wasLoadingOfflinePosts, String errorMessage) {
         Logger.d(TAG, "unableToGetPosts: error: " + errorMessage);
-    }
+    }*/
 
     @Override
     public void setPresenter(PostsContract.Presenter presenter) {
-        mPostsPresenter = presenter;
+        //mPostsPresenter = presenter;
     }
 }

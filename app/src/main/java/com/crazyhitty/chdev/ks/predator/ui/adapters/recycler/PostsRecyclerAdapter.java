@@ -24,6 +24,8 @@
 
 package com.crazyhitty.chdev.ks.predator.ui.adapters.recycler;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,11 +44,14 @@ import com.crazyhitty.chdev.ks.predator.utils.ScreenUtils;
 import com.crazyhitty.chdev.ks.producthunt_wrapper.utils.ImageUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.crazyhitty.chdev.ks.predator.utils.CoreUtils.checkNotNull;
 
 /**
  * Author:      Kartik Sharma
@@ -63,7 +68,7 @@ public class PostsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
     private static final int VIEW_TYPE_LARGE_CARDS = 3;
     private static final int VIEW_TYPE_LOAD_MORE = 98;
 
-    private List<Post> mPosts;
+    private List<Post> mPosts = new ArrayList<>();
     private TYPE mType;
     private OnPostsLoadMoreRetryListener mOnPostsLoadMoreRetryListener;
     private OnItemClickListener mOnItemClickListener;
@@ -73,6 +78,17 @@ public class PostsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
     private boolean mNetworkAvailable;
     private String mErrorMessage;
     private boolean mLoadMoreNotRequired = false;
+
+    /**
+     * Initialize using this constructor if you want a empty recycler adapter.
+     *
+     * @param type                            Type of data to be displayed
+     * @param onPostsLoadMoreRetryListener    listener that will notify when to load more posts
+     */
+    public PostsRecyclerAdapter(@NonNull TYPE type, @Nullable OnPostsLoadMoreRetryListener onPostsLoadMoreRetryListener) {
+        mType = checkNotNull(type, "TYPE cannot be null");
+        mOnPostsLoadMoreRetryListener = onPostsLoadMoreRetryListener;
+    }
 
     /**
      * Initialize using this constructor if load more and dates functionalities are not required.
@@ -121,14 +137,15 @@ public class PostsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
      * @param dateHashMap
      * @param forceReplace
      */
+    @Deprecated
     public void updateDataset(List<Post> posts, HashMap<Integer, String> dateHashMap, boolean forceReplace) {
         mDateHashMap = dateHashMap;
+        int oldCount = mPosts.size();
         mPosts = posts;
         if (forceReplace) {
             mLastPosition = -1;
             notifyDataSetChanged();
         } else {
-            int oldCount = mPosts.size();
             notifyItemRangeInserted(oldCount, mPosts.size() - oldCount);
         }
     }
@@ -139,11 +156,36 @@ public class PostsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
      * @param posts
      * @param forceReplace
      */
+    @Deprecated
     public void updateDataset(List<Post> posts, boolean forceReplace) {
         mPosts = posts;
         if (forceReplace) {
             mLastPosition = -1;
         }
+        notifyDataSetChanged();
+    }
+
+    public void addPosts(List<Post> posts) {
+        int oldCount = mPosts.size();
+        mPosts.addAll(posts);
+        notifyItemRangeInserted(oldCount, mPosts.size() - oldCount);
+    }
+
+    public void addPosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
+        int oldCount = mPosts.size();
+        mDateHashMap = dateHashMap;
+        mPosts.addAll(posts);
+        notifyItemRangeInserted(oldCount, mPosts.size() - oldCount);
+    }
+
+    public void replacePosts(List<Post> posts) {
+        mPosts = posts;
+        notifyDataSetChanged();
+    }
+
+    public void replacePosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
+        mDateHashMap = dateHashMap;
+        mPosts = posts;
         notifyDataSetChanged();
     }
 

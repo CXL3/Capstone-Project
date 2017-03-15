@@ -56,7 +56,7 @@ import com.crazyhitty.chdev.ks.predator.account.PredatorAccount;
 import com.crazyhitty.chdev.ks.predator.core.postDetails.PostDetailsContract;
 import com.crazyhitty.chdev.ks.predator.core.postDetails.PostDetailsPresenter;
 import com.crazyhitty.chdev.ks.predator.data.Constants;
-import com.crazyhitty.chdev.ks.predator.data.PredatorSharedPreferences;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorSharedPreferences;
 import com.crazyhitty.chdev.ks.predator.events.CommentsEvent;
 import com.crazyhitty.chdev.ks.predator.events.UsersEvent;
 import com.crazyhitty.chdev.ks.predator.models.Comment;
@@ -510,13 +510,13 @@ public class PostDetailsActivity extends BaseAppCompatActivity implements MediaR
     public void sharePostDetails() {
         if (mPostDetailsPresenter.getPostDetails() == null ||
                 TextUtils.isEmpty(mPostDetailsPresenter.getPostDetails().getTitle()) ||
-                TextUtils.isEmpty(mPostDetailsPresenter.getPostDetails().getTagline())) {
+                TextUtils.isEmpty(mPostDetailsPresenter.getPostDetails().getDescription())) {
             Toast.makeText(getApplicationContext(), R.string.post_details_no_redirect_url_available, Toast.LENGTH_SHORT).show();
             return;
         }
 
         String title = mPostDetailsPresenter.getPostDetails().getTitle();
-        String body = mPostDetailsPresenter.getPostDetails().getTagline() + "\n" +
+        String body = mPostDetailsPresenter.getPostDetails().getDescription() + "\n" +
                 mPostDetailsPresenter.getPostDetails().getDiscussionUrl();
 
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);

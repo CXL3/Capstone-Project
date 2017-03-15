@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.crazyhitty.chdev.ks.predator.data;
+package com.crazyhitty.chdev.ks.predator.data.source.local;
 
 import android.Manifest;
 import android.accounts.Account;
@@ -38,14 +38,11 @@ import android.support.annotation.RequiresPermission;
 import com.crazyhitty.chdev.ks.predator.account.PredatorAccount;
 import com.crazyhitty.chdev.ks.predator.core.collections.CollectionsContract;
 import com.crazyhitty.chdev.ks.predator.core.collections.CollectionsPresenter;
-import com.crazyhitty.chdev.ks.predator.core.posts.PostsContract;
-import com.crazyhitty.chdev.ks.predator.core.posts.PostsPresenter;
+import com.crazyhitty.chdev.ks.predator.data.Constants;
 import com.crazyhitty.chdev.ks.predator.models.Collection;
-import com.crazyhitty.chdev.ks.predator.models.Post;
 import com.crazyhitty.chdev.ks.predator.utils.Logger;
 import com.crazyhitty.chdev.ks.predator.utils.NetworkConnectionUtil;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -60,10 +57,10 @@ public class PredatorSyncAdapter extends AbstractThreadedSyncAdapter {
 
     private final AccountManager mAccountManager;
 
-    private PostsContract.Presenter mPostsPresenter;
+    //private PostsContract.Presenter mPostsPresenter;
     private CollectionsContract.Presenter mCollectionsPresenter;
 
-    private PostsContract.View mPostsView = new PostsContract.View() {
+    /*private PostsContract.View mPostsView = new PostsContract.View() {
         @Override
         public void showPosts(List<Post> posts, HashMap<Integer, String> dateHashMap) {
             Logger.d(TAG, "showPosts: postsSize: " + posts.size());
@@ -80,7 +77,7 @@ public class PredatorSyncAdapter extends AbstractThreadedSyncAdapter {
         public void setPresenter(PostsContract.Presenter presenter) {
             // Do nothing here.
         }
-    };
+    };*/
 
     private CollectionsContract.View mCollectionView = new CollectionsContract.View() {
         @Override
@@ -104,10 +101,10 @@ public class PredatorSyncAdapter extends AbstractThreadedSyncAdapter {
         mAccountManager = AccountManager.get(context);
 
         // Initialize the presenters.
-        mPostsPresenter = new PostsPresenter(mPostsView);
+        //mPostsPresenter = new PostsPresenter(mPostsView);
         mCollectionsPresenter = new CollectionsPresenter(mCollectionView);
 
-        mPostsPresenter.subscribe();
+        //mPostsPresenter.subscribe();
         mCollectionsPresenter.subscribe();
     }
 
@@ -175,7 +172,7 @@ public class PredatorSyncAdapter extends AbstractThreadedSyncAdapter {
                     true);
 
             // Fetch latest posts.
-            mPostsPresenter.getPosts(authToken, true);
+            //mPostsPresenter.getPosts(authToken, true);
 
             // Fetch featured collections.
             mCollectionsPresenter.getLatestCollections(authToken, true);
@@ -188,9 +185,9 @@ public class PredatorSyncAdapter extends AbstractThreadedSyncAdapter {
     public void onSyncCanceled() {
         super.onSyncCanceled();
 
-        if (mPostsPresenter != null) {
+        /*if (mPostsPresenter != null) {
             mPostsPresenter.unSubscribe();
-        }
+        }*/
 
         if (mCollectionsPresenter != null) {
             mCollectionsPresenter.unSubscribe();

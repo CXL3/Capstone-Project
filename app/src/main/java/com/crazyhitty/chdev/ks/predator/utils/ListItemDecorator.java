@@ -35,7 +35,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.crazyhitty.chdev.ks.predator.R;
-import com.crazyhitty.chdev.ks.predator.data.PredatorSharedPreferences;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorSharedPreferences;
 
 
 /**

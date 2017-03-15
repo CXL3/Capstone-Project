@@ -44,7 +44,7 @@ import com.crazyhitty.chdev.ks.predator.core.auth.AuthPresenter;
 import com.crazyhitty.chdev.ks.predator.core.categories.CategoriesContract;
 import com.crazyhitty.chdev.ks.predator.core.categories.CategoriesPresenter;
 import com.crazyhitty.chdev.ks.predator.data.Constants;
-import com.crazyhitty.chdev.ks.predator.data.PredatorSharedPreferences;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorSharedPreferences;
 import com.crazyhitty.chdev.ks.predator.events.OAuthTokenEvent;
 import com.crazyhitty.chdev.ks.predator.events.OnboardContinueEvent;
 import com.crazyhitty.chdev.ks.predator.events.OnboardSecondAnimateEvent;

@@ -100,14 +100,14 @@
 
         <!--content provider for maintaining app database-->
         <provider
-            android:name=".data.PredatorProvider"
+            android:name=".data.source.local.PredatorProvider"
             android:authorities="com.crazyhitty.chdev.ks.predator"
             android:exported="false"
             android:protectionLevel="signature"
             android:syncable="true" />
 
         <service
-            android:name=".data.PredatorSyncService"
+            android:name=".data.source.local.PredatorSyncService"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />

@@ -24,6 +24,8 @@
 
 package com.crazyhitty.chdev.ks.predator.models;
 
+import java.util.List;
+
 /**
  * Author:      Kartik Sharma
  * Email Id:    cr42yh17m4n@gmail.com
@@ -41,7 +43,7 @@ public class Post {
     private String tagline;
     private int commentCount;
     private String createdAt;
-    private int createdAtMillis;
+    private long createdAtMillis;
     private String discussionUrl;
     private String redirectUrl;
     private int votesCount;
@@ -55,6 +57,16 @@ public class Post {
     private String userImageUrl100px;
     private String userImageUrlOriginal;
     private boolean isInCollection;
+    private String date;
+    private String backdropUrl;
+    private String category;
+    private int voteCount;
+    private User hunter;
+    private List<User> makers;
+    private List<User> voters;
+    private List<Comment> comments;
+    private List<Media> media;
+    private List<InstallLink> installLinks;
 
     public int getId() {
         return id;
@@ -128,11 +140,11 @@ public class Post {
         this.createdAt = createdAt;
     }
 
-    public int getCreatedAtMillis() {
+    public long getCreatedAtMillis() {
         return createdAtMillis;
     }
 
-    public void setCreatedAtMillis(int createdAtMillis) {
+    public void setCreatedAtMillis(long createdAtMillis) {
         this.createdAtMillis = createdAtMillis;
     }
 
@@ -236,11 +248,91 @@ public class Post {
         return isInCollection;
     }
 
+    public void setInCollection(boolean inCollection) {
+        isInCollection = inCollection;
+    }
+
     public void setInCollection(int inCollection) {
         isInCollection = inCollection == 1;
     }
 
-    public void setInCollection(boolean inCollection) {
-        isInCollection = inCollection;
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getBackdropUrl() {
+        return backdropUrl;
+    }
+
+    public void setBackdropUrl(String backdropUrl) {
+        this.backdropUrl = backdropUrl;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(int voteCount) {
+        this.voteCount = voteCount;
+    }
+
+    public User getHunter() {
+        return hunter;
+    }
+
+    public void setHunter(User hunter) {
+        this.hunter = hunter;
+    }
+
+    public List<User> getMakers() {
+        return makers;
+    }
+
+    public void setMakers(List<User> makers) {
+        this.makers = makers;
+    }
+
+    public List<User> getVoters() {
+        return voters;
+    }
+
+    public void setVoters(List<User> voters) {
+        this.voters = voters;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Media> getMedia() {
+        return media;
+    }
+
+    public void setMedia(List<Media> media) {
+        this.media = media;
+    }
+
+    public List<InstallLink> getInstallLinks() {
+        return installLinks;
+    }
+
+    public void setInstallLinks(List<InstallLink> installLinks) {
+        this.installLinks = installLinks;
     }
 }

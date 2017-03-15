@@ -24,6 +24,8 @@
 
 package com.crazyhitty.chdev.ks.predator.models;
 
+import java.util.List;
+
 /**
  * Author:      Kartik Sharma
  * Email Id:    cr42yh17m4n@gmail.com
@@ -38,10 +40,14 @@ public class PostDetails {
     private String date;
     private String backdropUrl;
     private String redirectUrl;
-    private String tagline;
     private String discussionUrl;
+    private int categoryId;
     private String category;
     private int voteCount;
+    private List<User> users;
+    private List<Comment> comments;
+    private List<Media> media;
+    private List<InstallLink> installLinks;
 
     public PostDetails() {
     }
@@ -94,20 +100,20 @@ public class PostDetails {
         this.redirectUrl = redirectUrl;
     }
 
-    public String getTagline() {
-        return tagline;
-    }
-
-    public void setTagline(String tagline) {
-        this.tagline = tagline;
-    }
-
     public String getDiscussionUrl() {
         return discussionUrl;
     }
 
     public void setDiscussionUrl(String discussionUrl) {
         this.discussionUrl = discussionUrl;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategory() {
@@ -126,6 +132,38 @@ public class PostDetails {
         this.voteCount = voteCount;
     }
 
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Media> getMedia() {
+        return media;
+    }
+
+    public void setMedia(List<Media> media) {
+        this.media = media;
+    }
+
+    public List<InstallLink> getInstallLinks() {
+        return installLinks;
+    }
+
+    public void setInstallLinks(List<InstallLink> installLinks) {
+        this.installLinks = installLinks;
+    }
+
     @Override
     public String toString() {
         return "title: " + title +
@@ -134,7 +172,6 @@ public class PostDetails {
                 ", date: " + date +
                 ", backdropUrl: " + backdropUrl +
                 ", redirectUrl: " + redirectUrl +
-                ", tagline: " + tagline +
                 ", discussionUrl: " + discussionUrl +
                 ", category: " + category +
                 ", voteCount: " + voteCount;

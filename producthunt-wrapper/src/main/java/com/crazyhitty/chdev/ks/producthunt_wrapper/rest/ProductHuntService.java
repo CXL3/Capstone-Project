@@ -52,11 +52,6 @@ import retrofit2.http.Query;
  */
 
 public interface ProductHuntService {
-    @GET(ApiUrls.GET_POSTS)
-    Observable<PostsData> getPosts(@Header(Constants.AUTHORIZATION) String authorization,
-                                   @Query(Constants.PAGE) int page,
-                                   @Query(Constants.PER_PAGE) int perPage);
-
     @GET(ApiUrls.GET_POSTS_BY_CATEGORY_DAYWISE)
     Observable<PostsData> getPostsCategoryWise(@Header(Constants.AUTHORIZATION) String authorization,
                                                @Path(Constants.CATEGORY_NAME) String categoryName,

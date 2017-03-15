@@ -22,12 +22,13 @@
  * SOFTWARE.
  */
 
-package com.crazyhitty.chdev.ks.predator.data;
+package com.crazyhitty.chdev.ks.predator.data.source.local;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
 
 import com.crazyhitty.chdev.ks.predator.R;
+import com.crazyhitty.chdev.ks.predator.data.Constants;
 import com.crazyhitty.chdev.ks.predator.utils.DateUtils;
 
 /**

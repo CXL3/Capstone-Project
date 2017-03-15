@@ -164,4 +164,33 @@ public class CoreUtils {
             activity.startActivity(intent);
         }
     }
+
+    /**
+     * Check if the given object is null or not.
+     *
+     * @param reference Object that must be checked
+     * @param <T>       Type of object
+     * @return Returns the object itself if not null, otherwise throws error.
+     */
+    public static <T> T checkNotNull(T reference) {
+        if (reference == null) {
+            throw new NullPointerException();
+        }
+        return reference;
+    }
+
+    /**
+     * Check if the given object is null or not.
+     *
+     * @param reference    Object that must be checked
+     * @param errorMessage Error message in case the suitable condition fails.
+     * @param <T>          Type of object
+     * @return Returns the object itself if not null, otherwise throws error.
+     */
+    public static <T> T checkNotNull(T reference, String errorMessage) {
+        if (reference == null) {
+            throw new NullPointerException(errorMessage);
+        }
+        return reference;
+    }
 }

@@ -37,7 +37,7 @@ import android.database.Cursor;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.crazyhitty.chdev.ks.predator.data.PredatorContract;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorContract;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

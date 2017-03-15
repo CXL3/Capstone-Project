@@ -37,7 +37,7 @@ import android.widget.Toast;
 
 import com.crazyhitty.chdev.ks.predator.MainApplication;
 import com.crazyhitty.chdev.ks.predator.R;
-import com.crazyhitty.chdev.ks.predator.data.PredatorContract;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorContract;
 import com.crazyhitty.chdev.ks.predator.models.Comment;
 import com.crazyhitty.chdev.ks.predator.models.InstallLink;
 import com.crazyhitty.chdev.ks.predator.models.Media;
@@ -563,7 +563,6 @@ public class PostDetailsPresenter implements PostDetailsContract.Presenter {
         String date = getString(cursor, PredatorContract.PostsEntry.COLUMN_CREATED_AT);
         String backdropUrl = getString(cursor, PredatorContract.PostsEntry.COLUMN_THUMBNAIL_IMAGE_URL);
         String redirectUrl = getString(cursor, PredatorContract.PostsEntry.COLUMN_REDIRECT_URL);
-        String tagline = getString(cursor, PredatorContract.PostsEntry.COLUMN_TAGLINE);
         String discussionUrl = getString(cursor, PredatorContract.PostsEntry.COLUMN_DISCUSSION_URL);
         String category = getCategoryName(getInt(cursor, PredatorContract.PostsEntry.COLUMN_CATEGORY_ID));
         int voteCount = getInt(cursor, PredatorContract.PostsEntry.COLUMN_VOTES_COUNT);
@@ -575,7 +574,6 @@ public class PostDetailsPresenter implements PostDetailsContract.Presenter {
         postDetails.setDate(date);
         postDetails.setBackdropUrl(backdropUrl);
         postDetails.setRedirectUrl(redirectUrl);
-        postDetails.setTagline(tagline);
         postDetails.setDiscussionUrl(discussionUrl);
         postDetails.setCategory(category);
         postDetails.setVoteCount(voteCount);

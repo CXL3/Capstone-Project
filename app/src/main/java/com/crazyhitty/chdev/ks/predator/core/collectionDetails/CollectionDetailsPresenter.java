@@ -30,8 +30,7 @@ import android.support.annotation.NonNull;
 
 import com.crazyhitty.chdev.ks.predator.MainApplication;
 import com.crazyhitty.chdev.ks.predator.core.collections.CollectionsPresenter;
-import com.crazyhitty.chdev.ks.predator.core.posts.PostsPresenter;
-import com.crazyhitty.chdev.ks.predator.data.PredatorContract;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorContract;
 import com.crazyhitty.chdev.ks.predator.models.Collection;
 import com.crazyhitty.chdev.ks.predator.models.Post;
 import com.crazyhitty.chdev.ks.predator.utils.CoreUtils;
@@ -142,7 +141,7 @@ public class CollectionDetailsPresenter implements CollectionDetailsContract.Pre
                     emitter.onNext(getPostsFromCursor(cursor));
                     cursor.close();
                 } else {
-                    emitter.onError(new PostsPresenter.NoPostsAvailableException());
+                    emitter.onError(new NullPointerException("No offline posts available"));
                 }
                 emitter.onComplete();
             }

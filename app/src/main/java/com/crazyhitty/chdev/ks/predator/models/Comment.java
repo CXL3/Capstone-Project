@@ -37,7 +37,7 @@ public class Comment {
     private int parentCommentId;
     private String body;
     private String createdAt;
-    private int createdAtMillis;
+    private long createdAtMillis;
     private int postId;
     private int userId;
     private String username;
@@ -91,11 +91,11 @@ public class Comment {
         this.createdAt = createdAt;
     }
 
-    public int getCreatedAtMillis() {
+    public long getCreatedAtMillis() {
         return createdAtMillis;
     }
 
-    public void setCreatedAtMillis(int createdAtMillis) {
+    public void setCreatedAtMillis(long createdAtMillis) {
         this.createdAtMillis = createdAtMillis;
     }
 

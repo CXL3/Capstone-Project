@@ -33,7 +33,7 @@ import android.support.annotation.RequiresPermission;
 
 import com.crazyhitty.chdev.ks.predator.account.PredatorAccount;
 import com.crazyhitty.chdev.ks.predator.data.Constants;
-import com.crazyhitty.chdev.ks.predator.data.PredatorSharedPreferences;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorSharedPreferences;
 import com.crazyhitty.chdev.ks.producthunt_wrapper.models.OAuthData;
 import com.crazyhitty.chdev.ks.producthunt_wrapper.rest.OAuth;
 import com.crazyhitty.chdev.ks.producthunt_wrapper.rest.ProductHuntRestApi;

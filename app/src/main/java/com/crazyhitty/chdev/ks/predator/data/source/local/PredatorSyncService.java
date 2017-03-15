@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.crazyhitty.chdev.ks.predator.data;
+package com.crazyhitty.chdev.ks.predator.data.source.local;
 
 import android.app.Service;
 import android.content.Intent;

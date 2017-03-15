@@ -42,6 +42,7 @@ public class User {
     private String websiteUrl;
     private String thumbnail;
     private String image;
+    private int associatedPostId;
     private String huntedPostIds;
     private String madePostIds;
     private String votedPostIds;
@@ -111,6 +112,14 @@ public class User {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getAssociatedPostId() {
+        return associatedPostId;
+    }
+
+    public void setAssociatedPostId(int associatedPostId) {
+        this.associatedPostId = associatedPostId;
     }
 
     public String getHuntedPostIds() {

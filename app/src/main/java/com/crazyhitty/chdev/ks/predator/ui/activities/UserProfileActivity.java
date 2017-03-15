@@ -50,7 +50,7 @@ import com.crazyhitty.chdev.ks.predator.account.PredatorAccount;
 import com.crazyhitty.chdev.ks.predator.core.userProfile.UserProfileContract;
 import com.crazyhitty.chdev.ks.predator.core.userProfile.UserProfilePresenter;
 import com.crazyhitty.chdev.ks.predator.data.Constants;
-import com.crazyhitty.chdev.ks.predator.data.PredatorSharedPreferences;
+import com.crazyhitty.chdev.ks.predator.data.source.local.PredatorSharedPreferences;
 import com.crazyhitty.chdev.ks.predator.events.UserFollowersFollowingEvent;
 import com.crazyhitty.chdev.ks.predator.events.UserPostsEvent;
 import com.crazyhitty.chdev.ks.predator.models.Post;
